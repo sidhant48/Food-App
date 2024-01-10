@@ -1,17 +1,14 @@
 import { IMG_CDN_URL } from "../constants";
 
-const RestaurentCard = ({
-  name,
-  cuisines,
-  lastMileTravelString,
-  cloudinaryImageId,
-}) => {
+const RestaurentCard = ({ dataNew }) => {
   return (
     <div className="card">
-      <img src={IMG_CDN_URL + cloudinaryImageId} />
-      <h2>{name}</h2>
-      <h3>{cuisines.join(", ")}</h3>
-      <h4>{lastMileTravelString} minutes</h4>
+      <img src={IMG_CDN_URL + dataNew.cloudinaryImageId} />
+      <h2>{dataNew.name}</h2>
+      <h3>{dataNew.cuisines.join(", ")}</h3>
+      <h3>{dataNew.avgRatingString}</h3>
+      <h3>{dataNew.costForTwo}</h3>
+      <h4>{dataNew.sla.slaString} minutes</h4>
     </div>
   );
 };
