@@ -52,10 +52,7 @@ const Body = () => {
       <div className="restaurant-list">
         {allRestaurants.map((restaurent) => {
           return (
-            <RestaurentCard
-              dataNew={restaurent.info}
-              key={restaurent.info.id}
-            />
+            <RestaurentCard {...restaurent.info} key={restaurent.info.id} />
           );
         })}
       </div>
