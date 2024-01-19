@@ -8,6 +8,7 @@ import Error from "./components/Error.jsx";
 import Contact from "./components/Contact.jsx";
 import Body from "./components/Body.jsx";
 import RestaurentMenu from "./components/RestaurentMenu.jsx";
+import Profile from "./components/Profile.jsx";
 
 const appRouter = createBrowserRouter([
   {
@@ -18,6 +19,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+        children: [
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+        ],
       },
       {
         path: "/contact",
