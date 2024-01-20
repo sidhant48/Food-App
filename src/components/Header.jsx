@@ -3,7 +3,7 @@ import Logo from "../assets/img/logo.png";
 import { Link } from "react-router-dom";
 
 const Title = () => (
-  <a href="/">
+  <a href="/home">
     <img className="logo" alt="logo" src={Logo} />
   </a>
 );
@@ -17,7 +17,7 @@ const Header = () => {
       <div className="nav-items">
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/home">Home</Link>
           </li>
 
           <li>

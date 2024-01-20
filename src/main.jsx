@@ -9,8 +9,14 @@ import Contact from "./components/Contact.jsx";
 import Body from "./components/Body.jsx";
 import RestaurentMenu from "./components/RestaurentMenu.jsx";
 import Profile from "./components/Profile.jsx";
+import LoginPage from "./components/LoginPage.jsx";
 
 const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <LoginPage />,
+    errorElement: <Error />,
+  },
   {
     path: "/",
     element: <App />,
@@ -31,7 +37,7 @@ const appRouter = createBrowserRouter([
         element: <Contact />,
       },
       {
-        path: "/",
+        path: "/home",
         element: <Body />,
       },
       {
