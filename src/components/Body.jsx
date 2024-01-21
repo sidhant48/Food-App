@@ -3,20 +3,13 @@ import { restaurantList } from "../constants";
 import RestaurentCard from "./RestaurentCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [allRestaurants, setAllRestaurants] = useState([]);
   const [filteredRestaurants, setFilteredRestaurants] = useState([]);
-
-  function filterData(searchText, restaurants) {
-    const filteredData = restaurants.filter((restaurent) => {
-      return restaurent?.info?.name
-        ?.toLowerCase()
-        ?.includes(searchText.toLowerCase());
-    });
-    return filteredData;
-  }
 
   useEffect(() => {
     getRestaurants();
@@ -28,17 +21,18 @@ const Body = () => {
     );
 
     const json = await data.json();
-
-    // console.log(json);
-    // console.log(
-    //   json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
-    // );
     setAllRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
     setFilteredRestaurants(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
+  }
+
+  const isOnline = useOnline();
+
+  if (!isOnline) {
+    return <h1>🔴Please check your Internet Connection!</h1>;
   }
 
   if (!allRestaurants) return null;
@@ -73,6 +67,7 @@ const Body = () => {
             <Link
               to={"/restaurent/" + restaurent.info.id}
               key={restaurent.info.id}
+              style={{ textDecoration: "none" }}
             >
               <RestaurentCard {...restaurent.info} />
             </Link>
