@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import About from "./components/About.jsx";
 import Error from "./components/Error.jsx";
 import Contact from "./components/Contact.jsx";
 import Body from "./components/Body.jsx";
@@ -13,6 +12,7 @@ import LoginPage from "./components/LoginPage.jsx";
 import Shimmer from "./components/Shimmer.jsx";
 
 const InstaMart = lazy(() => import("./components/InstaMart.jsx"));
+const About = lazy(() => import("./components/About.jsx"));
 
 const appRouter = createBrowserRouter([
   {
@@ -27,7 +27,11 @@ const appRouter = createBrowserRouter([
     children: [
       {
         path: "/about",
-        element: <About />,
+        element: (
+          <Suspense>
+            <About />
+          </Suspense>
+        ),
         children: [
           {
             path: "profile",

@@ -13,7 +13,7 @@ const RestaurentMenu = () => {
   return !restaurant ? (
     <Shimmer />
   ) : (
-    <div className="menu">
+    <div className="flex justify-between">
       <div>
         <h1>Restaurent ID: {resId}</h1>
         <h2>{restaurant.name}</h2>
@@ -38,7 +38,7 @@ const RestaurentMenu = () => {
       </div> */}
       <div>
         <h2>Other Details:</h2>
-        <h3 className="address">Address:{restaurant.labels[1].message}</h3>
+        <h3 className="text-wrap">Address:{restaurant.labels[1].message}</h3>
         <h2>Cuisines:{restaurant.labels[2].message}</h2>
         <h3>Cuisines type:{restaurant.veg ? "Vegetarian" : "Veg/Non-Veg"}</h3>
         <h3>Max Delivery time : {restaurant.sla.maxDeliveryTime} minutes</h3>

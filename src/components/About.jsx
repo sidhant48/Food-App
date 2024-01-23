@@ -1,6 +1,6 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import ProfileClass from "./ProfileClass";
+// import ProfileClass from "./ProfileClass";
 import Profile from "./Profile";
 
 class About extends React.Component {
