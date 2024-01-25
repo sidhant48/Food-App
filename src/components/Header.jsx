@@ -19,6 +19,7 @@ const Header = () => {
       <Title />
       <div className="nav-items">
         <ul className="flex py-10">
+          <li className="px-2">Online Status:{isOnline ? "✅" : "🔴"}</li>
           <li className="px-2">
             <Link to="/home">Home</Link>
           </li>
@@ -33,25 +34,16 @@ const Header = () => {
           <li>
             <Link to="/InstaMart">InstaMart</Link>
           </li>
-          <li className="px-2">{isOnline ? "✅" : "🔴"}</li>
+
+          <li className="px-2">
+            {isLoggedIn ? (
+              <span onClick={() => setIsLoggedIn(false)}>Logout</span>
+            ) : (
+              <span onClick={() => setIsLoggedIn(true)}>Login</span>
+            )}
+          </li>
         </ul>
       </div>
-
-      {isLoggedIn ? (
-        <button
-          className="bg-red-500 text-white text-base md:text-lg flex px-2 md:px-3 py-1 md:py-9 rounded hover:bg-red-600 justify-center flex-shrink-0"
-          onClick={() => setIsLoggedIn(false)}
-        >
-          Logout
-        </button>
-      ) : (
-        <button
-          className="bg-green-400 text-white text-base md:text-lg flex px-2 md:px-3 py-1 md:py-9 rounded hover:bg-green-600 justify-center flex-shrink-0"
-          onClick={() => setIsLoggedIn(true)}
-        >
-          Login
-        </button>
-      )}
     </div>
   );
 };
