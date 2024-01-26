@@ -1,9 +1,10 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import RestaurentCard, { withPromotedCard } from "./RestaurentCard";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
+import UserContext from "../utils/UserContext";
 
 const Body = () => {
   const [searchText, setSearchText] = useState("");
@@ -30,6 +31,7 @@ const Body = () => {
 
   const isOnline = useOnline();
   const RestaurantCardPromoted = withPromotedCard(RestaurentCard);
+  const { loggedInUser, setUserName } = useContext(UserContext);
 
   if (!isOnline) {
     return <h1>🔴Please check your Internet Connection!</h1>;
@@ -45,7 +47,7 @@ const Body = () => {
     <Shimmer />
   ) : (
     <>
-      <div className="p-5 bg-pink-50 my-5">
+      <div className="p-5 bg-pink-50 my-5 ">
         <input
           className="focus:bg-yellow-50 p-2"
           type="text"
@@ -62,7 +64,15 @@ const Body = () => {
         >
           Search
         </button>
+        <span>
+          User Name:{" "}
+          <input
+            value={loggedInUser}
+            onChange={(e) => setUserName(e.target.value)}
+          />
+        </span>
       </div>
+
       <div className="flex flex-wrap">
         {filteredRestaurants.map((restaurant) => {
           return (
