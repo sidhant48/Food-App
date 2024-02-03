@@ -18,7 +18,7 @@ class About extends React.Component {
             )}
           </UserContext.Consumer>
         </div>
-        <p>This is namaste react course 🚀</p>
+        <p className="text-2xl font-bold">Other details coming soon!!!</p>
         {/* <ProfileClass name={"Sidhant"} xyz="abc" /> */}
         <Profile />
       </div>
