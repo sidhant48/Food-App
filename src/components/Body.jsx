@@ -67,7 +67,10 @@ const Body = () => {
         <span>
           User Name:{" "}
           <input
+            className="focus:bg-yellow-50 p-2"
+            type="text"
             value={loggedInUser}
+            placeholder="Please enter your name"
             onChange={(e) => setUserName(e.target.value)}
           />
         </span>

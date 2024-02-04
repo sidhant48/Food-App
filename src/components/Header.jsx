@@ -12,7 +12,7 @@ const Title = () => (
 );
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const isOnline = useOnline();
 
@@ -44,15 +44,19 @@ const Header = () => {
           <li>
             <Link to="/InstaMart">InstaMart</Link>
           </li>
-
+          <li className="px-2 font-bold">Welcome {loggedInUser}</li>
           <li className="px-2">
-            {isLoggedIn ? (
+            {/* {isLoggedIn ? (
               <span onClick={() => setIsLoggedIn(false)}>Logout</span>
             ) : (
               <span onClick={() => setIsLoggedIn(true)}>Login</span>
-            )}
+            )} */}
+            <Link to="/">
+              <button className="bg-red-500 hover:bg-red-600 text-white py-1 px-2 rounded-md">
+                Logout
+              </button>
+            </Link>
           </li>
-          <li className="px-2 font-bold">{loggedInUser}</li>
         </ul>
       </div>
     </div>

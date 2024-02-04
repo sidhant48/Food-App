@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     const data = {
-      name: "Sidhant",
+      name: "",
     };
     setUserName(data.name);
   }, []);
